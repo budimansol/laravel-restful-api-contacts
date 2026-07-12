@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use Database\Seeders\UserSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -85,6 +86,68 @@ class UserTest extends TestCase
                 ]
             ]
         );
+    }
+    
+    public function testLoginSuccess(){
+        $this->seed([UserSeeder::class]);
+        $this->post('/api/users/login', [
+            'username' => 'test',
+            'password' => 'test'
+        ])->assertStatus(200)
+        ->assertJson([
+            "data" => [
+                'username' => 'test',
+                'first_name' => 'test'
+            ]
+        ]);
+        
+        $user = User::where('username', 'test')->first();
+        $this->assertNotNull($user->token);
+    }
+    
+    public function testLoginUserNotFound(){
+        $this->post('/api/users/login', [
+            'username' => 'test',
+            'password' => 'test'
+        ])->assertStatus(401)
+        ->assertJson([
+            "errors" => [
+                'message' => [
+                    'Username or Password is Wrong'
+                ]
+            ]
+        ]);
+    }
+    
+    public function testLoginPasswordWrong(){
+        $this->seed([UserSeeder::class]);
+        $this->post('/api/users/login', [
+            'username' => 'test',
+            'password' => '123123'
+        ])->assertStatus(401)
+        ->assertJson([
+            "errors" => [
+                'message' => [
+                    'Username or Password is Wrong'
+                ]
+            ]
+        ]);
+    }
+    
+    public function testLoginUserDeleted(){
+        $this->seed([UserSeeder::class]);
+        User::query()->delete();
+        $this->post('/api/users/login', [
+            'username' => 'test',
+            'password' => 'test'
+        ])->assertStatus(401)
+        ->assertJson([
+            "errors" => [
+                'message' => [
+                    'Username or Password is Wrong'
+                ]
+            ]
+        ]);
     }
     
 }
