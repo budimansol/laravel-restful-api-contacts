@@ -161,13 +161,13 @@ class UserTest extends TestCase
         ]);
     }
     
-    public function testUnauthorize(){
+    public function testUnauthorized(){
         $this->get('/api/users/current')
         ->assertStatus(401)
         ->assertJson([
             "errors" => [
                 'message' => [
-                    'Unauthorize'
+                    'Unauthorized'
                 ]
             ]
         ]);
@@ -182,7 +182,7 @@ class UserTest extends TestCase
         ->assertJson([
             "errors" => [
                 'message' => [
-                    'Unauthorize'
+                    'Unauthorized'
                 ]
             ]
         ]);
@@ -243,6 +243,32 @@ class UserTest extends TestCase
             "errors" => [
                 'first_name' => [
                     'The first name field must not be greater than 100 characters.'
+                ]
+            ]
+        ]);
+    }
+    
+    public function testLogoutSuccess(){
+        $this->seed([UserSeeder::class]);
+        $this->delete(uri : '/api/users/logout', headers : [
+            'Authorization' => 'test'
+        ])->assertStatus(200)
+        ->assertJson([
+            'data' => true
+        ]);
+        $user = User::where('username', 'test')->first();
+        $this->assertNull($user->token);
+    }
+    
+    public function testLogoutFailed(){
+        $this->seed([UserSeeder::class]);
+        $this->delete('/api/users/logout', [
+            'Authorization' => '123123'
+        ])->assertStatus(401)
+        ->assertJson([
+            'errors' => [
+                'message' => [
+                    'Unauthorized'
                 ]
             ]
         ]);

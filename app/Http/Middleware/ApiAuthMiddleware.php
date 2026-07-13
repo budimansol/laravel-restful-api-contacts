@@ -39,7 +39,7 @@ class ApiAuthMiddleware
             return response()->json([
                 "errors" => [
                     'message' => [
-                        'Unauthorize'
+                        'Unauthorized'
                     ]
                 ]
             ])->setStatusCode(401);
