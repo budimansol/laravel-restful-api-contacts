@@ -1,0 +1,536 @@
+{
+  "info": {
+    "_postman_id": "5fe1f2dd-32fd-40b3-acd9-20c54c642d9d",
+    "name": "Laravel Restful API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32124176"
+  },
+  "item": [
+    {
+      "name": "User Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\" : \"budimansol\",\n    \"password\" : \"123123123\",\n    \"first_name\" : \"budiman\",\n    \"last_name\" : \"sol\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\" : \"budimansol\",\n    \"password\" : \"123123123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Get",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/users/current",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "current"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Logout",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/users/logout",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Update",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"first_name\" : \"updated manually\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users/current",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "current"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contact Get One",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contact Create",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"first_name\" : \"Gareth\",\n    \"last_name\" : \"Terebale\",\n    \"email\" : \"balebale@mail.com\",\n    \"phone\" : \"089098098098\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contacts",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contact Update",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"first_name\" : \"Garetho\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contact Delete",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"first_name\" : \"tes1\",\n    \"last_name\" : \"tes2\",\n    \"email\" : \"tes22@mail.com\",\n    \"phone\" : \"0821111112222\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1556",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1556"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Contact Search",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/contacts?email=@mail.com",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts"
+          ],
+          "query": [
+            {
+              "key": "email",
+              "value": "@mail.com"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Address Create",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"street\" : \"Randujagung\",\n    \"city\" : \"Mendek\",\n    \"province\" : \"Jasal\",\n    \"country\" : \"Wales\",\n    \"postal_code\" : \"321321\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557/addresses",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557",
+            "addresses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Address Update",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"street\" : \"Randubolo\",\n    \"province\" : \"Jasal\",\n    \"country\" : \"Wales\",\n    \"postal_code\" : \"321321\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557/addresses/70",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557",
+            "addresses",
+            "70"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Address Delete",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557/addresses/70",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557",
+            "addresses",
+            "70"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Address List",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557/addresses",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557",
+            "addresses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Address Get",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "28f22555-be4b-4812-aab1-4926b8f637d8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/contacts/1557/addresses/71",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contacts",
+            "1557",
+            "addresses",
+            "71"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "Authorization",
+      "value": ""
+    }
+  ]
+}
