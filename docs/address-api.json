@@ -90,6 +90,16 @@
             },
             "get": {
                 "description": "Get list Address",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "idContact",
+                        "in": "path"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success Get Address",
